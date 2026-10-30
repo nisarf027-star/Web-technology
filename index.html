@@ -1,107 +1,556 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>amazon.in</title>
-<style>
-:root{--page:#e3e6e6;--ink:#fff;--nav:#131921;--sub:#232f3e;--orange:#febd69;--orange2:#f3a847;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#0f1111}}
-:root[data-theme="dark"]{--page:#0f1111}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--page);font-family:"Amazon Ember",Arial,Helvetica,sans-serif;color:var(--ink)}
-a{color:inherit;text-decoration:none}
-.top{background:var(--nav);display:flex;align-items:center;gap:6px;padding:8px 12px;height:60px}
-.top>*{flex:none}
-.logo{display:flex;flex-direction:column;padding:4px 8px;border:1px solid transparent;border-radius:2px;line-height:1}
-.logo b{font-size:25px;letter-spacing:-1px;font-weight:700}
-.logo b i{font-style:normal;font-size:12px;font-weight:600;letter-spacing:0}
-.logo svg{margin:-3px 0 0 14px}
-.loc{display:flex;align-items:flex-end;gap:2px;padding:6px 8px;font-size:12px;color:#ccc;line-height:1.2}
-.loc b{display:block;color:#fff;font-size:14px}
-.loc svg{margin-bottom:2px}
-.search{flex:1 1 auto;display:flex;height:40px;border-radius:4px;overflow:hidden;min-width:0;margin:0 6px}
-.search .all{background:#e6e6e6;color:#555;font-size:12px;padding:0 10px;display:flex;align-items:center;gap:4px;border-right:1px solid #cdcdcd}
-.search input{flex:1;min-width:0;border:0;outline:0;padding:0 10px;font-size:15px;background:#fff;color:#111}
-.search button{width:46px;border:0;background:var(--orange);display:grid;place-items:center;cursor:pointer}
-.search button:hover{background:var(--orange2)}
-.item{padding:6px 8px;font-size:12px;line-height:1.25;border:1px solid transparent;border-radius:2px;white-space:nowrap}
-.item:hover,.logo:hover,.loc:hover{border-color:#fff}
-.item b{display:block;font-size:14px}
-.lang{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px}
-.flag{width:20px;height:14px;display:inline-block;border-radius:1px;background:linear-gradient(#ff9933 33.3%,#fff 33.3% 66.6%,#138808 66.6%);position:relative}
-.flag::after{content:"";position:absolute;left:7px;top:4px;width:6px;height:6px;border-radius:50%;border:1px solid #000080}
-.cart{display:flex;align-items:flex-end;gap:2px;font-weight:700;font-size:14px;position:relative;padding:6px 8px}
-.cart span{position:absolute;left:21px;top:0;color:var(--orange);font-size:15px;width:20px;text-align:center}
-.nav{background:var(--sub);display:flex;gap:4px;padding:0 10px;height:39px;align-items:center;font-size:14px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
-.nav a{padding:6px 9px;border:1px solid transparent;border-radius:2px}
-.nav a:hover{border-color:#fff}
-.nav .all{display:flex;align-items:center;gap:5px;font-weight:700}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:12px 10px 20px}
-.card{border-radius:14px;padding:12px 12px 0;min-height:400px;display:flex;flex-direction:column;position:relative;overflow:hidden;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-.card h2{margin:6px 0 2px;font-size:25px;line-height:1.1}
-.card p{margin:0;font-size:14px}
-.tags{display:flex;font-size:11px;margin:8px 0;gap:8px}
-.tags span+span{border-left:1px solid rgba(255,255,255,.7);padding-left:8px}
-.art{flex:1;display:grid;place-items:center;font-size:84px}
-.art div{width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(255,255,255,.08)}
-.badge{text-align:center;font-size:11px;font-weight:700;border:1px solid #f5d27a;background:#7b1030;border-radius:4px;padding:5px;margin:0 -2px 5px;color:#ffe9a8}
-.cash{background:#e8341c;font-size:11px;font-weight:700;text-align:center;padding:4px;margin-bottom:5px;border-radius:2px}
-.bank{background:#fff;color:#222;border-radius:3px;padding:5px 8px;font-size:11px;font-weight:700;display:flex;gap:8px;align-items:center;margin-bottom:6px}
-.bank em{font-style:normal;background:#004c8f;color:#fff;padding:2px 5px;border-radius:2px;font-size:10px}
-.tc{font-size:10px;margin:0 0 6px}
-.red{background:linear-gradient(#c8203f,#a8152f)}
-.orange{background:linear-gradient(#ff7a18,#f05a0a)}
-.purple{background:linear-gradient(#b0207f,#7a1262)}
-.yellow{background:linear-gradient(#ffb300,#f59a00)}.yellow h2{color:#111}.yellow p{color:#222}
-@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}.search{flex:1 1 200px}.hide-m{display:none}}
-@media(max-width:560px){.cards{grid-template-columns:1fr}.loc,.lang,.returns{display:none}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUO PLAY - Two Player Games</title>
+
+    <style>
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b18;
+            color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111125;
+            border-bottom: 1px solid #252541;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+            color: #00f5d4;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff4ecd;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ccccdd;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00f5d4;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, #00d9bd, #00a8ff);
+            color: #080817;
+            padding: 11px 23px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 570px;
+            padding: 90px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background:
+                radial-gradient(circle at 80% 50%, #252052 0%, transparent 40%),
+                #0b0b18;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #252044;
+            color: #00f5d4;
+            padding: 9px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.12;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #ff4ecd;
+        }
+
+        .hero p {
+            color: #b7b7cc;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff4ecd, #9b5cff);
+            color: white;
+            padding: 15px 32px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px #ff4ecd55;
+        }
+
+        .secondary-btn {
+            display: inline-block;
+            border: 1px solid #555577;
+            padding: 14px 30px;
+            border-radius: 30px;
+            margin-left: 12px;
+            transition: 0.3s;
+        }
+
+        .secondary-btn:hover {
+            background: #252541;
+        }
+
+        /* HERO IMAGE */
+        .hero-image {
+            width: 400px;
+            height: 380px;
+            flex-shrink: 0;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #22224c, #501e64);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 150px;
+            box-shadow: 0 0 60px #a12cff33;
+            border: 1px solid #57417b;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 55px 8%;
+            background: #111125;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            text-align: center;
+        }
+
+        .feature {
+            padding: 20px;
+        }
+
+        .feature h3 {
+            color: #00f5d4;
+            margin: 12px 0;
+        }
+
+        .feature p {
+            color: #aaaac0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .feature-icon {
+            font-size: 35px;
+        }
+
+        /* GAMES SECTION */
+        .games-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: #00f5d4;
+        }
+
+        .section-description {
+            color: #aaaac0;
+            margin-bottom: 45px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .game-card {
+            background: #17172d;
+            border: 1px solid #292946;
+            border-radius: 18px;
+            overflow: hidden;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: #00f5d4;
+            box-shadow: 0 10px 30px #00f5d422;
+        }
+
+        .game-image {
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+        }
+
+        .game1 { background: linear-gradient(135deg, #293b83, #6141a8); }
+        .game2 { background: linear-gradient(135deg, #b22c65, #ff7b54); }
+        .game3 { background: linear-gradient(135deg, #087f75, #1cbaa4); }
+        .game4 { background: linear-gradient(135deg, #493c8c, #a05bca); }
+        .game5 { background: linear-gradient(135deg, #a85a16, #e9a43d); }
+        .game6 { background: linear-gradient(135deg, #174b8a, #238ad0); }
+
+        .game-info {
+            padding: 22px;
+        }
+
+        .game-info h3 {
+            font-size: 21px;
+            margin-bottom: 9px;
+        }
+
+        .game-info p {
+            color: #aaaac0;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .game-btn {
+            display: inline-block;
+            color: #00f5d4;
+            border: 1px solid #00f5d4;
+            padding: 9px 22px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .game-btn:hover {
+            background: #00f5d4;
+            color: #0b0b18;
+        }
+
+        /* CALL TO ACTION */
+        .cta {
+            margin: 30px 8% 80px;
+            padding: 65px 25px;
+            text-align: center;
+            border-radius: 25px;
+            background: linear-gradient(120deg, #40216e, #142c5b);
+        }
+
+        .cta h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #d0cde2;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111125;
+            padding: 30px 8%;
+            text-align: center;
+            border-top: 1px solid #252541;
+        }
+
+        footer .logo {
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #8888a5;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image {
+                width: min(100%, 400px);
+                height: 300px;
+            }
+
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 65px 6%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-image {
+                height: 240px;
+                font-size: 100px;
+            }
+
+            .secondary-btn {
+                margin: 12px 0 0;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .games-section {
+                padding: 60px 6%;
+            }
+
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header class="top">
-  <a class="logo" href="#"><b>amazon<i>.in</i></b>
-    <svg width="60" height="10" viewBox="0 0 60 10" fill="none"><path d="M2 3c14 8 36 8 50 0" stroke="#ff9900" stroke-width="3" stroke-linecap="round"/><path d="M47 1l6 2-3 5" stroke="#ff9900" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></a>
-  <a class="loc hide-m" href="#"><svg width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.500 7 12 7 12z"/><circle cx="12" cy="10" r="2.500"/></svg>
-    <span>Delivering to Guntur 522213<b>Update location</b></span></a>
-  <div class="search"><div class="all">All <svg width="8" height="5"><path d="M0 0h8L4 5z" fill="#555"/></svg></div>
-    <input type="text" placeholder="Search Amazon.in" aria-label="Search Amazon.in">
-    <button aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.200" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg></button></div>
-  <a class="item lang" href="#"><span class="flag"></span>EN<svg width="8" height="5"><path d="M0 0h8L4 5z" fill="#aaa"/></svg></a>
-  <a class="item hide-m" href="#">Hello, sign in<b>Account &amp; Lists ▾</b></a>
-  <a class="item returns" href="#">Returns<b>&amp; Orders</b></a>
-  <a class="cart" href="#"><span>0</span><svg width="38" height="32" viewBox="0 0 38 32" fill="none" stroke="#fff" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6l4 17h18l4-12H10"/><circle cx="14" cy="27" r="2"/><circle cx="28" cy="27" r="2"/></svg>Cart</a>
-</header>
-<nav class="nav">
-  <a class="all" href="#"><svg width="20" height="14" viewBox="0 0 20 14" stroke="#fff" stroke-width="2"><path d="M0 1h20M0 7h20M0 13h20"/></svg>All</a>
-  <a href="#">Prime Video</a><a href="#">Coupons</a><a href="#">Customer Service</a><a href="#">Today’s Deals</a><a href="#">Registry</a><a href="#">Gift Cards</a><a href="#">Sell</a>
-</nav>
-<main class="cards">
-  <section class="card red"><h2>Women’s fashion under ₹499</h2>
-    <div class="tags"><span>Free Delivery</span><span>Easy Returns</span></div>
-    <div class="art"><div>👗</div></div>
-    <div class="badge">Last Chance Deals<br>Great Indian Festival | Diwali Edition</div>
-    <div class="cash">35% cashback up to ₹150 on your first order*</div>
-    <div class="bank"><em>HDFC BANK</em>10% Instant Discount on Credit Card &amp; EASYEMI on Cards</div><p class="tc">*T&amp;C apply</p></section>
-  <section class="card orange"><h2>Get instant bank discount</h2><p>Special Festive offer</p><p><b>DELL</b> Technologies</p>
-    <div class="art"><div>💻</div></div>
-    <div class="badge">Last Chance Deals<br>Great Indian Festival | Diwali Edition</div>
-    <div class="cash">35% cashback up to ₹150 on your first order*</div>
-    <div class="bank"><em>HDFC BANK</em>10% Instant Discount on Credit Card &amp; EASYEMI on Cards</div><p class="tc">*T&amp;C apply</p></section>
-  <section class="card purple"><h2>Under ₹599 Perfumes</h2>
-    <div class="tags"><span>Free Delivery on first 3 orders*</span><span>Latest Trends</span></div>
-    <div class="art"><div>🧴</div></div>
-    <div class="badge">Last Chance Deals<br>Great Indian Festival | Diwali Edition</div>
-    <div class="cash">35% cashback up to ₹150 on your first order*</div>
-    <div class="bank"><em>HDFC BANK</em>10% Instant Discount on Credit Card &amp; EASYEMI on Cards</div><p class="tc">*T&amp;C apply</p></section>
-  <section class="card yellow"><h2>Under ₹999</h2><p>Deals on kitchen essentials</p>
-    <div class="tags"><span>Free Delivery on first 3 orders*</span><span>Easy Returns</span></div>
-    <div class="art"><div>🍳</div></div>
-    <div class="badge">Last Chance Deals<br>Great Indian Festival | Diwali Edition</div>
-    <div class="cash">35% cashback up to ₹150 on your first order*</div>
-    <div class="bank"><em>HDFC BANK</em>10% Instant Discount on Credit Card &amp; EASYEMI on Cards</div><p class="tc">*T&amp;C apply</p></section>
-</main>
+
+    <!-- NAVIGATION -->
+    <header>
+        <a href="#" class="logo">DUO<span>PLAY</span></a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#games">Games</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <a href="#games" class="nav-btn">Play Now</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <span class="tag">🎮 THE ULTIMATE GAMING ZONE</span>
+
+            <h1>
+                Two Players.<br>
+                One <span>Epic Battle.</span>
+            </h1>
+
+            <p>
+                Challenge your friends, compete with your partner
+                and experience endless fun with our collection
+                of exciting two-player games. Let the battle begin!
+            </p>
+
+            <a href="#games" class="primary-btn">Explore Games →</a>
+            <a href="#about" class="secondary-btn">Learn More</a>
+        </div>
+
+        <div class="hero-image">
+            🎮
+        </div>
+
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+
+        <div class="feature">
+            <div class="feature-icon">👥</div>
+            <h3>Two Player Mode</h3>
+            <p>Enjoy exciting multiplayer experiences with your favourite person.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Fun</h3>
+            <p>Jump into exciting games and enjoy quick entertainment.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🏆</div>
+            <h3>Friendly Competition</h3>
+            <p>Challenge each other and find out who is the ultimate champion.</p>
+        </div>
+
+    </section>
+
+    <!-- GAMES SECTION -->
+    <section class="games-section" id="games">
+
+        <h2 class="section-title">Explore Our <span>Games</span></h2>
+
+        <p class="section-description">
+            Pick your favourite game and challenge your opponent!
+        </p>
+
+        <div class="game-grid">
+
+            <div class="game-card">
+                <div class="game-image game1">⭕</div>
+                <div class="game-info">
+                    <h3>Tic Tac Toe</h3>
+                    <p>A classic battle of X and O. Outsmart your opponent!</p>
+                    <a href="#" class="game-btn">Play Game →</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image game2">🏓</div>
+                <div class="game-info">
+                    <h3>Ping Pong</h3>
+                    <p>Test your speed and reflexes in an exciting table tennis battle.</p>
+                    <a href="#" class="game-btn">Play Game →</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image game3">♟️</div>
+                <div class="game-info">
+                    <h3>Chess Battle</h3>
+                    <p>Use your strategy and defeat your opponent in this classic game.</p>
+                    <a href="#" class="game-btn">Play Game →</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image game4">🃏</div>
+                <div class="game-info">
+                    <h3>Memory Match</h3>
+                    <p>Challenge your memory and match the cards before your opponent.</p>
+                    <a href="#" class="game-btn">Play Game →</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image game5">🎯</div>
+                <div class="game-info">
+                    <h3>Target Challenge</h3>
+                    <p>Show your accuracy and compete to achieve the highest score.</p>
+                    <a href="#" class="game-btn">Play Game →</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image game6">🚗</div>
+                <div class="game-info">
+                    <h3>Racing Battle</h3>
+                    <p>Race against your friend and fight for the first position.</p>
+                    <a href="#" class="game-btn">Play Game →</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta" id="about">
+
+        <h2>Ready to Challenge Your Friend?</h2>
+
+        <p>
+            Gather your friends, choose your favourite game
+            and discover who deserves the champion title!
+        </p>
+
+        <a href="#games" class="primary-btn">Start Playing Now →</a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">DUO<span>PLAY</span></div>
+
+        <p>
+            Two Players. Endless Fun. One Gaming Destination.
+        </p>
+
+        <p>© 2026 DUOPLAY. All Rights Reserved.</p>
+
+    </footer>
+
 </body>
 </html>
